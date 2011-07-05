@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{36BFEB75-D83E-4DD7-9C16-61F2C8C61203}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Syntan</RootNamespace>
+    <AssemblyName>Syntan</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\Syntan.xml</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Release\Syntan.xml</DocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SyntacticAnalysis\EndOfSourceSymbol.cs" />
+    <Compile Include="SyntacticAnalysis\EpsilonGrammaticals.cs" />
+    <Compile Include="SyntacticAnalysis\EpsilonSymbol.cs" />
+    <Compile Include="SyntacticAnalysis\ExtendedGrammar.cs" />
+    <Compile Include="SyntacticAnalysis\FirstSets.cs" />
+    <Compile Include="SyntacticAnalysis\FollowSets.cs" />
+    <Compile Include="SyntacticAnalysis\ForeignSymbolInRuleException.cs" />
+    <Compile Include="SyntacticAnalysis\Grammar.cs" />
+    <Compile Include="SyntacticAnalysis\GrammarException.cs" />
+    <Compile Include="SyntacticAnalysis\GrammaticalSymbol.cs" />
+    <Compile Include="SyntacticAnalysis\IGrammar.cs" />
+    <Compile Include="SyntacticAnalysis\InvalidEndOfSourceSymbolException.cs" />
+    <Compile Include="SyntacticAnalysis\LR\InternalParserException.cs" />
+    <Compile Include="SyntacticAnalysis\LR\LR0CanonicalSets.cs" />
+    <Compile Include="SyntacticAnalysis\LR\LR0Item.cs" />
+    <Compile Include="SyntacticAnalysis\LR\Parser.cs" />
+    <Compile Include="SyntacticAnalysis\LR\ParserException.cs" />
+    <Compile Include="SyntacticAnalysis\LR\ParserStack.cs" />
+    <Compile Include="SyntacticAnalysis\LR\ParserTable.cs" />
+    <Compile Include="SyntacticAnalysis\LR\ParsingPhase.cs" />
+    <Compile Include="SyntacticAnalysis\LR\SLR1ParserTableBuilder.cs" />
+    <Compile Include="SyntacticAnalysis\LR\UnexpectedEndOfSourceException.cs" />
+    <Compile Include="SyntacticAnalysis\MissingStartRuleException.cs" />
+    <Compile Include="SyntacticAnalysis\MissingStartSymbolException.cs" />
+    <Compile Include="Utils\RelationMatrix.cs" />
+    <Compile Include="SyntacticAnalysis\RestrictedStartSymbolGrammar.cs" />
+    <Compile Include="SyntacticAnalysis\Rule.cs" />
+    <Compile Include="SyntacticAnalysis\Symbol.cs" />
+    <Compile Include="SyntacticAnalysis\TerminalSymbol.cs" />
+    <Compile Include="Utils\DefaultEqualityComparer.cs" />
+    <Compile Include="Utils\DelegateEqualityComparer.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

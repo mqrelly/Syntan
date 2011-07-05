@@ -1,0 +1,46 @@
+Third Party Libraries
+=====================
+
+[1] Graph Layout Execution Engine (GLEE)
+    http://research.microsoft.com/en-us/downloads/f1303e46-965f-401a-87c3-34e1331d32c5/default.aspx
+    Microsoft Research Shared Source License Agreement
+    libs/
+
+    Now it is Microsoft Automatic Graph Layout (MSAGL) with a commercial license,
+    but the original licensing still holds for old versions.
+
+Resources
+=========
+
+[2] Silk icon set 1.3
+    http://www.famfamfam.com/lab/icons/silk/
+    Creative Commons Attribution 2.5 License.
+    resources/images/
+
+Developer tools
+===============
+
+[3] xUnit 1.7 beta
+    http://xunit.codeplex.com/
+    Microsoft Public License (Ms-PL)
+    tools/xUnit/
+
+[4] PartCover 2.3.3403
+    http://sourceforge.net/projects/partcover/
+    GNU General Public License (GPL)
+    tools/PartCover/
+
+[5] ReportGenerator
+    http://reportgenerator.codeplex.com/
+    Apache License v2.0
+    tools/ReportGenerator/
+
+[6] Doxygen
+    http://www.stack.nl/~dimitri/doxygen/
+    GNU General Public License
+    tools/doxygen/
+
+[7] Mercurial (Hg)
+    http://mercurial.selenic.com/
+    GNU General Public License Version 2
+    (not distributed with the repository)

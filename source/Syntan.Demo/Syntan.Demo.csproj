@@ -1,0 +1,263 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F743C822-2814-4249-A898-ECE042D7C987}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Syntan.Demo</RootNamespace>
+    <AssemblyName>Syntan.Demo</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.GLEE, Version=1.2.0.0, Culture=neutral, PublicKeyToken=7f84f738e1fc245c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\libs\Glee\Microsoft.GLEE.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.GLEE.Drawing, Version=1.2.0.0, Culture=neutral, PublicKeyToken=8a3d7c21d5fa1306, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\libs\Glee\Microsoft.GLEE.Drawing.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.GLEE.GraphViewerGDI, Version=1.2.0.0, Culture=neutral, PublicKeyToken=fffc27ea4058b3a1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\libs\Glee\Microsoft.GLEE.GraphViewerGDI.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ColorScheme.cs" />
+    <Compile Include="GrammarForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GrammarForm.Designer.cs">
+      <DependentUpon>GrammarForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GraphDrawing\CurveSegment.cs" />
+    <Compile Include="GraphDrawing\Edge.cs" />
+    <Compile Include="GraphDrawing\GraphRenderer.cs" />
+    <Compile Include="GraphDrawing\Node.cs" />
+    <Compile Include="GraphDrawing\GraphView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GraphDrawing\GraphView.Designer.cs">
+      <DependentUpon>GraphView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ParserStartForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ParserStartForm.Designer.cs">
+      <DependentUpon>ParserStartForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ParserView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ParserView.Designer.cs">
+      <DependentUpon>ParserView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ParserStackView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ParserStackView.Designer.cs">
+      <DependentUpon>ParserStackView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GraphDrawing\PointExtension.cs" />
+    <Compile Include="GraphDrawing\RectangleExtensions.cs" />
+    <Compile Include="StepsView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="StepsView.Designer.cs">
+      <DependentUpon>StepsView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SyntacticGrammarEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SyntacticGrammarEditor.Designer.cs">
+      <DependentUpon>SyntacticGrammarEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ParserTableView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ParserTableView.Designer.cs">
+      <DependentUpon>ParserTableView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RuleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RuleForm.Designer.cs">
+      <DependentUpon>RuleForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SyntacticTreeViewNode.cs" />
+    <Compile Include="SyntcticTreeView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SyntcticTreeView.Designer.cs">
+      <DependentUpon>SyntcticTreeView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DfsmView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DfsmView.Designer.cs">
+      <DependentUpon>DfsmView.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="GrammarForm.resx">
+      <DependentUpon>GrammarForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GraphDrawing\GraphView.resx">
+      <DependentUpon>GraphView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ParserStartForm.resx">
+      <DependentUpon>ParserStartForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ParserView.resx">
+      <DependentUpon>ParserView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ParserStackView.resx">
+      <DependentUpon>ParserStackView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StepsView.resx">
+      <DependentUpon>StepsView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SyntacticGrammarEditor.resx">
+      <DependentUpon>SyntacticGrammarEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ParserTableView.resx">
+      <DependentUpon>ParserTableView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="RuleForm.resx">
+      <DependentUpon>RuleForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DfsmView.resx">
+      <DependentUpon>DfsmView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SyntcticTreeView.resx">
+      <DependentUpon>SyntcticTreeView.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="..\..\doc\user-manual.pdf">
+      <Link>user-manual.pdf</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Syntan\Syntan.csproj">
+      <Project>{36BFEB75-D83E-4DD7-9C16-61F2C8C61203}</Project>
+      <Name>Syntan</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\page_edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\control_play.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\control_stop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\page_white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\zoom_in.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\zoom_out.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eye.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\control_fastforward_blue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\control_pause_blue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\control_play_blue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\control_stop_blue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\control_end_blue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\help.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

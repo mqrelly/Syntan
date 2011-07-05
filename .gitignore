@@ -1,0 +1,12 @@
+# OS - Windows
+[Tt]humbs.db
+
+# Visula Studio
+*.user
+*.suo
+*.[Cc]ache
+[Bb]in/
+[Oo]bj/
+
+# Backups
+*.bak
