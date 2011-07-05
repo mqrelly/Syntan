@@ -30,15 +30,15 @@ Roadmap
 -------
 
 Planed for the next weeks:
-* Add a detailed todo.txt
-* Unit testing and code coverage 
-* Make it Mono/Linux compatible
-* documentation
+-  Add a detailed todo.txt
+-  Unit testing and code coverage 
+-  Make it Mono/Linux compatible
+-  documentation
 
 Later:
-* Make the Demo app translatable
-* Provide a default english translation
-* Save/Load parsing sessions
-* LR(1), LALR(1) parser table builders
-* WPF Demo app
-* Show the parser table generation details
+-  Make the Demo app translatable
+-  Provide a default english translation
+-  Save/Load parsing sessions
+-  LR(1), LALR(1) parser table builders
+-  WPF Demo app
+-  Show the parser table generation details
