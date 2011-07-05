@@ -7,7 +7,7 @@ This was a university project of mine. This software is intended for education, 
 
 This software is free (as in speach and beer). It uses the GNU General Public License v3.0 (see gpl-3.0.txt).
 
-The application's ui language is currently hungarien.
+The ui language is currently hungarien.
 
 
 Platform
@@ -28,6 +28,7 @@ The Demo application is the educational tool.
 
 Roadmap
 -------
+
 Planed for the next weeks:
 * Add a detailed todo.txt
 * Unit testing and code coverage 
