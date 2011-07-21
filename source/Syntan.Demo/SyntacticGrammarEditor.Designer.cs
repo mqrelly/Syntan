@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SyntacticGrammarEditor));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.StartSymbol_Label = new System.Windows.Forms.Label();
             this.Rules_TooLStrip = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.AddRule_Button = new System.Windows.Forms.ToolStripButton();
@@ -40,7 +41,7 @@
             this.Grammaticals_TextBox = new System.Windows.Forms.TextBox();
             this.Terminals_Label = new System.Windows.Forms.Label();
             this.Terminals_TextBox = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.StartSymbol_ComboBox = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.Rules_TooLStrip.SuspendLayout();
             this.SuspendLayout();
@@ -50,13 +51,14 @@
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel1.Controls.Add(this.label1, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.StartSymbol_Label, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.Rules_TooLStrip, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.Rules_ListBox, 0, 4);
             this.tableLayoutPanel1.Controls.Add(this.Grammaticals_Label, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.Grammaticals_TextBox, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.Terminals_Label, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.Terminals_TextBox, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.StartSymbol_ComboBox, 1, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -69,6 +71,18 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(309, 213);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
+            // StartSymbol_Label
+            // 
+            this.StartSymbol_Label.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.StartSymbol_Label.AutoSize = true;
+            this.StartSymbol_Label.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.StartSymbol_Label.Location = new System.Drawing.Point(0, 39);
+            this.StartSymbol_Label.Margin = new System.Windows.Forms.Padding(0);
+            this.StartSymbol_Label.Name = "StartSymbol_Label";
+            this.StartSymbol_Label.Size = new System.Drawing.Size(105, 13);
+            this.StartSymbol_Label.TabIndex = 2;
+            this.StartSymbol_Label.Text = "Kezdő szimbólum";
+            // 
             // Rules_TooLStrip
             // 
             this.Rules_TooLStrip.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
@@ -80,11 +94,11 @@
             this.AddRule_Button,
             this.EditRule_Button,
             this.DeleteRules_Button});
-            this.Rules_TooLStrip.Location = new System.Drawing.Point(0, 78);
+            this.Rules_TooLStrip.Location = new System.Drawing.Point(0, 92);
             this.Rules_TooLStrip.Name = "Rules_TooLStrip";
             this.Rules_TooLStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.Rules_TooLStrip.Size = new System.Drawing.Size(309, 25);
-            this.Rules_TooLStrip.TabIndex = 4;
+            this.Rules_TooLStrip.Size = new System.Drawing.Size(323, 25);
+            this.Rules_TooLStrip.TabIndex = 6;
             this.Rules_TooLStrip.Text = "toolStrip3";
             // 
             // toolStripLabel1
@@ -135,11 +149,11 @@
             this.Rules_ListBox.FormattingEnabled = true;
             this.Rules_ListBox.IntegralHeight = false;
             this.Rules_ListBox.ItemHeight = 18;
-            this.Rules_ListBox.Location = new System.Drawing.Point(3, 106);
+            this.Rules_ListBox.Location = new System.Drawing.Point(3, 120);
             this.Rules_ListBox.Name = "Rules_ListBox";
             this.Rules_ListBox.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
-            this.Rules_ListBox.Size = new System.Drawing.Size(303, 104);
-            this.Rules_ListBox.TabIndex = 5;
+            this.Rules_ListBox.Size = new System.Drawing.Size(317, 90);
+            this.Rules_ListBox.TabIndex = 7;
             this.Rules_ListBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.Rules_ListBox_DrawItem);
             this.Rules_ListBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Rules_ListBox_KeyDown);
             // 
@@ -159,7 +173,7 @@
             // 
             this.Grammaticals_TextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.Grammaticals_TextBox.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.Grammaticals_TextBox.Location = new System.Drawing.Point(94, 3);
+            this.Grammaticals_TextBox.Location = new System.Drawing.Point(108, 3);
             this.Grammaticals_TextBox.Name = "Grammaticals_TextBox";
             this.Grammaticals_TextBox.Size = new System.Drawing.Size(212, 25);
             this.Grammaticals_TextBox.TabIndex = 1;
@@ -171,36 +185,35 @@
             this.Terminals_Label.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.Terminals_Label.AutoSize = true;
             this.Terminals_Label.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.Terminals_Label.Location = new System.Drawing.Point(0, 56);
+            this.Terminals_Label.Location = new System.Drawing.Point(0, 70);
             this.Terminals_Label.Margin = new System.Windows.Forms.Padding(0);
             this.Terminals_Label.Name = "Terminals_Label";
             this.Terminals_Label.Size = new System.Drawing.Size(80, 13);
-            this.Terminals_Label.TabIndex = 2;
+            this.Terminals_Label.TabIndex = 4;
             this.Terminals_Label.Text = "Terminálisok";
             // 
             // Terminals_TextBox
             // 
             this.Terminals_TextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.Terminals_TextBox.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Terminals_TextBox.Location = new System.Drawing.Point(94, 50);
+            this.Terminals_TextBox.Location = new System.Drawing.Point(108, 64);
             this.Terminals_TextBox.Name = "Terminals_TextBox";
             this.Terminals_TextBox.Size = new System.Drawing.Size(212, 25);
-            this.Terminals_TextBox.TabIndex = 3;
+            this.Terminals_TextBox.TabIndex = 5;
             this.Terminals_TextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Terminals_TextBox_KeyDown);
             this.Terminals_TextBox.Leave += new System.EventHandler(this.Terminals_TextBox_Leave);
             // 
-            // label1
+            // StartSymbol_ComboBox
             // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label1.AutoSize = true;
-            this.tableLayoutPanel1.SetColumnSpan(this.label1, 2);
-            this.label1.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.Location = new System.Drawing.Point(97, 31);
-            this.label1.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(209, 13);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "Az első szimbólum lesz a kezdő-szimbólum.";
+            this.StartSymbol_ComboBox.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.StartSymbol_ComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.StartSymbol_ComboBox.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold);
+            this.StartSymbol_ComboBox.FormattingEnabled = true;
+            this.StartSymbol_ComboBox.Location = new System.Drawing.Point(199, 34);
+            this.StartSymbol_ComboBox.Margin = new System.Windows.Forms.Padding(3, 3, 3, 6);
+            this.StartSymbol_ComboBox.Name = "StartSymbol_ComboBox";
+            this.StartSymbol_ComboBox.Size = new System.Drawing.Size(121, 26);
+            this.StartSymbol_ComboBox.TabIndex = 3;
             // 
             // SyntacticGrammarEditor
             // 
@@ -231,7 +244,8 @@
         private System.Windows.Forms.Label Terminals_Label;
         private System.Windows.Forms.TextBox Terminals_TextBox;
         private System.Windows.Forms.ToolStripLabel toolStripLabel1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label StartSymbol_Label;
+        private System.Windows.Forms.ComboBox StartSymbol_ComboBox;
 
     }
 }

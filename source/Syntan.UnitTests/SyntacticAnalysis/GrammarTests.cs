@@ -16,7 +16,8 @@ namespace Syntan.UnitTests.SyntacticAnalysis
                 () => new Grammar(
                     null,
                     Fixtures.EmptyGrammar.BaseGrammar.Grammaticals,
-                    Fixtures.EmptyGrammar.BaseGrammar.Rules)
+                    Fixtures.EmptyGrammar.BaseGrammar.Rules,
+                    0)
             );
 
             Assert.Equal("terminals", ex.ParamName);
@@ -29,7 +30,8 @@ namespace Syntan.UnitTests.SyntacticAnalysis
                 () => new Grammar(
                     Fixtures.EmptyGrammar.BaseGrammar.Terminals,
                     null,
-                    Fixtures.EmptyGrammar.BaseGrammar.Rules)
+                    Fixtures.EmptyGrammar.BaseGrammar.Rules,
+                    0)
             );
 
             Assert.Equal("grammaticals", ex.ParamName);
@@ -42,7 +44,8 @@ namespace Syntan.UnitTests.SyntacticAnalysis
                 () => new Grammar(
                     Fixtures.EmptyGrammar.BaseGrammar.Terminals,
                     Fixtures.EmptyGrammar.BaseGrammar.Grammaticals,
-                    null)
+                    null,
+                    0)
             );
 
             Assert.Equal("rules", ex.ParamName);
@@ -55,7 +58,8 @@ namespace Syntan.UnitTests.SyntacticAnalysis
                 () => new Grammar(
                     new TerminalSymbol[] { new EndOfSourceSymbol() },
                     Fixtures.EmptyGrammar.BaseGrammar.Grammaticals,
-                    Fixtures.EmptyGrammar.BaseGrammar.Rules)
+                    Fixtures.EmptyGrammar.BaseGrammar.Rules,
+                    0)
             );
         }
 
@@ -66,7 +70,8 @@ namespace Syntan.UnitTests.SyntacticAnalysis
                 () => new Grammar(
                     Fixtures.EmptyGrammar.BaseGrammar.Terminals,
                     new GrammaticalSymbol[0],
-                    Fixtures.EmptyGrammar.BaseGrammar.Rules)
+                    Fixtures.EmptyGrammar.BaseGrammar.Rules,
+                    0)
             );
         }
 
@@ -77,7 +82,8 @@ namespace Syntan.UnitTests.SyntacticAnalysis
                 () => new Grammar(
                     Fixtures.EmptyGrammar.BaseGrammar.Terminals,
                     Fixtures.EmptyGrammar.BaseGrammar.Grammaticals,
-                    new Rule[0])
+                    new Rule[0],
+                    0)
             );
         }
 
@@ -97,7 +103,8 @@ namespace Syntan.UnitTests.SyntacticAnalysis
                     {
                         Fixtures.EmptyGrammar.BaseGrammar.Rules[0],
                         bad_rule,
-                    })
+                    },
+                    0)
             );
 
             Assert.Equal(bad_rule, ex.Rule);
@@ -120,7 +127,8 @@ namespace Syntan.UnitTests.SyntacticAnalysis
                     {
                         Fixtures.EmptyGrammar.BaseGrammar.Rules[0],
                         bad_rule,
-                    })
+                    },
+                    0)
             );
 
             Assert.Equal(bad_rule, ex.Rule);
@@ -143,7 +151,8 @@ namespace Syntan.UnitTests.SyntacticAnalysis
                     {
                         Fixtures.EmptyGrammar.BaseGrammar.Rules[0],
                         bad_rule,
-                    })
+                    },
+                    0)
             );
 
             Assert.Equal(bad_rule, ex.Rule);

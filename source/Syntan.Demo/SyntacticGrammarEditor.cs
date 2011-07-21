@@ -39,7 +39,8 @@ namespace Syntan.Demo
                 return new Grammar(
                     this.terminals,
                     this.grammaticals,
-                    this.rules);
+                    this.rules,
+                    this.StartSymbol_ComboBox.SelectedIndex);
             }
             set
             {
@@ -88,7 +89,6 @@ namespace Syntan.Demo
             foreach( var gr in this.grammaticals )
                 to_be_deleted[gr.Name] = true;
 
-            int symbol_index = 0;
             foreach( string name in symbol_names )
             {
                 // Do not delete this symbol
@@ -96,11 +96,7 @@ namespace Syntan.Demo
 
                 // Add new symbols
                 if( this.grammaticals.Find(gr => gr.Name == name) == null )
-                    this.grammaticals.Insert(
-                        Math.Min(symbol_index, Math.Max(0, this.grammaticals.Count - 1)),
-                        new GrammaticalSymbol(name));
-
-                symbol_index += 1;
+                    this.grammaticals.Add(new GrammaticalSymbol(name));
             }
 
             // Delete symbols
@@ -121,6 +117,8 @@ namespace Syntan.Demo
                     }
                 }
 
+            //TODO: order grammaticals?
+
             // Remove affected Rules
             if( affected_rule_indices.Count > 0 )
             {
@@ -135,6 +133,8 @@ namespace Syntan.Demo
 
             // Reformat the text representation
             this.Grammaticals_TextBox.Text = string.Join(",", this.grammaticals.Select(gr => gr.Name));
+
+            this.UpdateStartSymbolList();
         }
 
         private void Grammaticals_TextBox_Leave( object sender, EventArgs e )
@@ -146,6 +146,34 @@ namespace Syntan.Demo
         {
             if( e.KeyCode == Keys.Enter || e.KeyCode == Keys.Return )
                 this.RebuildGrammaticals();
+        }
+
+        private void UpdateStartSymbolList()
+        {
+            string old_symbol_name = null;
+            if( this.StartSymbol_ComboBox.SelectedIndex != -1 )
+                old_symbol_name = this.StartSymbol_ComboBox.SelectedItem.ToString();
+
+            // Update the grammatical list.
+            this.StartSymbol_ComboBox.BeginUpdate();
+            this.StartSymbol_ComboBox.Items.Clear();
+            for( int i = 0; i < this.grammaticals.Count; ++i )
+                this.StartSymbol_ComboBox.Items.Add(this.grammaticals[i].Name);
+            this.StartSymbol_ComboBox.EndUpdate();
+
+            // Restore selection, if possible.
+            if( this.StartSymbol_ComboBox.Items.Count > 0 )
+            {
+                if( old_symbol_name == null )
+                {
+                    this.StartSymbol_ComboBox.SelectedIndex = 0;
+                }
+                else
+                {
+                    int ind = this.StartSymbol_ComboBox.Items.IndexOf(old_symbol_name);
+                    this.StartSymbol_ComboBox.SelectedIndex = ind != -1 ? ind : 0;
+                }
+            }
         }
 
         #endregion
@@ -164,7 +192,6 @@ namespace Syntan.Demo
             foreach( var tr in this.terminals )
                 to_be_deleted.Add(tr.Name, true);
 
-            int symbol_index = 0;
             foreach( string name in names )
             {
                 // Do not delete this symbol
@@ -172,11 +199,7 @@ namespace Syntan.Demo
 
                 // Add new symbols
                 if( this.terminals.Find(tr => tr.Name == name) == null )
-                    this.terminals.Insert(
-                        Math.Min(symbol_index, Math.Max(0, this.terminals.Count - 1)),
-                        new TerminalSymbol(name));
-
-                symbol_index += 1;
+                    this.terminals.Add(new TerminalSymbol(name));
             }
 
             // Delete symbols

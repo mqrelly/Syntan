@@ -48,7 +48,7 @@ namespace Syntan.UnitTests.SyntacticAnalysis
             };
 
 
-            var gr = new RestrictedStartSymbolGrammar(new Grammar(terminals, grammaticals, rules));
+            var gr = new RestrictedStartSymbolGrammar(new Grammar(terminals, grammaticals, rules, 0));
 
             Assert.Equal(2, gr.Grammaticals.Count);
             Assert.Equal(2, gr.Rules.Count);
@@ -78,7 +78,7 @@ namespace Syntan.UnitTests.SyntacticAnalysis
             };
 
 
-            var gr = new RestrictedStartSymbolGrammar(new Grammar(terminals, grammaticals, rules));
+            var gr = new RestrictedStartSymbolGrammar(new Grammar(terminals, grammaticals, rules, 0));
 
             Assert.Equal(2, gr.Grammaticals.Count);
             Assert.Equal(3, gr.Rules.Count);
@@ -108,7 +108,7 @@ namespace Syntan.UnitTests.SyntacticAnalysis
             };
 
 
-            var gr = new RestrictedStartSymbolGrammar(new Grammar(terminals, grammaticals, rules));
+            var gr = new RestrictedStartSymbolGrammar(new Grammar(terminals, grammaticals, rules, 0));
 
             Assert.Equal(2, gr.Grammaticals.Count);
             Assert.Equal(2, gr.Rules.Count);
@@ -137,7 +137,7 @@ namespace Syntan.UnitTests.SyntacticAnalysis
             };
 
 
-            var gr = new RestrictedStartSymbolGrammar(new Grammar(terminals, grammaticals, rules));
+            var gr = new RestrictedStartSymbolGrammar(new Grammar(terminals, grammaticals, rules, 0));
 
             Assert.Equal(2, gr.Grammaticals.Count);
             Assert.Equal(3, gr.Rules.Count);

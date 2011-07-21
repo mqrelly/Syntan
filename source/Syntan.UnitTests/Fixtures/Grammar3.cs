@@ -66,7 +66,7 @@ namespace Syntan.UnitTests.Fixtures
                         new Symbol[0]),
                 };
 
-            BaseGrammar = new Grammar(terminals, grammaticals, rules);
+            BaseGrammar = new Grammar(terminals, grammaticals, rules, 0);
             RestrictedGrammar = new RestrictedStartSymbolGrammar(BaseGrammar);
             ExtendedGrammar = new ExtendedGrammar(RestrictedGrammar);
 

@@ -52,28 +52,41 @@ namespace Syntan.SyntacticAnalysis
                 rules.Insert(0, new_start_rule);
                 this.rules = rules.AsReadOnly();
             }
-            else if( start_rules.Count == 0 )
-            {
-                // New epsilon start rule
-                this.grammaticals = this.base_gr.Grammaticals;
-                var new_start_rule = new Rule(old_start_sym, new Symbol[0]);
-                rules.Insert(0, new_start_rule);
-                this.rules = rules.AsReadOnly();
-            }
-            else if( rules[0] != start_rules[0] )
-            {
-                // Reorder to be the first
-                this.grammaticals = this.base_gr.Grammaticals;
-                var old_start_rule = start_rules[0];
-                rules.Remove(old_start_rule);
-                rules.Insert(0, old_start_rule);
-                this.rules = rules.AsReadOnly();
-            }
             else
             {
-                // Everithing is fine.
-                this.grammaticals = this.base_gr.Grammaticals;
-                this.rules = this.base_gr.Rules;
+                if( this.base_gr.IndexOf(old_start_sym) != 0 )
+                {
+                    int old_ind = this.base_gr.IndexOf(old_start_sym);
+                    var grammaticals = new List<GrammaticalSymbol>(this.base_gr.Grammaticals);
+                    grammaticals.RemoveAt(old_ind);
+                    grammaticals.Insert(0, old_start_sym);
+                    this.grammaticals = grammaticals.AsReadOnly();
+                }
+                else
+                {
+                    this.grammaticals = this.base_gr.Grammaticals;
+                }
+
+                if( start_rules.Count == 0 )
+                {
+                    // New epsilon start rule.
+                    var new_start_rule = new Rule(old_start_sym, new Symbol[0]);
+                    rules.Insert(0, new_start_rule);
+                    this.rules = rules.AsReadOnly();
+                }
+                else if( rules[0] != start_rules[0] )
+                {
+                    // Reorder to be the first rule.
+                    var old_start_rule = start_rules[0];
+                    rules.Remove(old_start_rule);
+                    rules.Insert(0, old_start_rule);
+                    this.rules = rules.AsReadOnly();
+                }
+                else
+                {
+                    // Rules are fine.
+                    this.rules = this.base_gr.Rules;
+                }
             }
         }
 

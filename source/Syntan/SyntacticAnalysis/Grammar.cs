@@ -26,7 +26,8 @@ namespace Syntan.SyntacticAnalysis
             EmptyGrammar = new Grammar(
                 new TerminalSymbol[0],
                 new GrammaticalSymbol[] { start_sym },
-                new Rule[] { new Rule(start_sym, new Symbol[0]) });
+                new Rule[] { new Rule(start_sym, new Symbol[0]) },
+                0);
         }
 
         #endregion
@@ -38,6 +39,7 @@ namespace Syntan.SyntacticAnalysis
         /// <param name="terminals">The terminals of the grammar.</param>
         /// <param name="grammaticals">The grammaticals of the grammar. The first one will be the start-symbol.</param>
         /// <param name="rules">The rules of the grammar.</param>
+        /// <param name="start_symbol_index">The index of selected grammatical to be the <see cref="StartSymbol"/></param>
         /// <exception cref="ArgumentNullException"> if any of the arguments is <c>null</c>.</exception>
         /// <exception cref="InvalidEndOfSourceSymbolException"> if <paramref name="terminals"/> 
         /// contain an <see cref="EndOfSourceSymbol"/>.</exception>
@@ -45,10 +47,13 @@ namespace Syntan.SyntacticAnalysis
         /// <exception cref="MissingStartRuleException"> if <paramref name="rules"/> is empty.</exception>
         /// <exception cref="ForeignSymbolInRuleException"> if a rule contains a <see cref="Symbol"/> 
         /// other than one from this grammar.</exception>
+        /// <exception cref="ArgumentOutOfRangeException"> if <paramref name="start_symbol_index"/> is less than <c>0</c>
+        /// or equal or greater than <c>grammatical.Count</c>.</exception>
         public Grammar(
             IEnumerable<TerminalSymbol> terminals,
             IEnumerable<GrammaticalSymbol> grammaticals,
-            IEnumerable<Rule> rules )
+            IEnumerable<Rule> rules,
+            int start_symbol_index )
         {
             if( object.ReferenceEquals(terminals, null) )
                 throw new ArgumentNullException("terminals");
@@ -60,7 +65,7 @@ namespace Syntan.SyntacticAnalysis
 
             this.terminals = new List<TerminalSymbol>(terminals).AsReadOnly();
             this.grammaticals = new List<GrammaticalSymbol>(grammaticals).AsReadOnly();
-
+            this.start_symb_ind = start_symbol_index;
             this.rules = new List<Rule>(rules).AsReadOnly();
 
             // Consistency checking
@@ -70,6 +75,9 @@ namespace Syntan.SyntacticAnalysis
 
             if( this.grammaticals.Count == 0 )
                 throw new MissingStartSymbolException();
+
+            if( this.start_symb_ind < 0 || this.start_symb_ind >= this.grammaticals.Count )
+                throw new ArgumentOutOfRangeException("start_symbol_index");
 
             if( this.rules.Count == 0 )
                 throw new MissingStartRuleException();
@@ -97,6 +105,7 @@ namespace Syntan.SyntacticAnalysis
         private IList<TerminalSymbol> terminals;
         private IList<GrammaticalSymbol> grammaticals;
         private IList<Rule> rules;
+        private int start_symb_ind;
 
         /// <summary>
         /// Gets the terminals of the grammar as a read-only list of <see cref="TerminalSymbol"/>.
@@ -123,11 +132,11 @@ namespace Syntan.SyntacticAnalysis
         }
 
         /// <summary>
-        /// Gets the start-symbol of the grammar. The first in <see cref="Grammaticals"/>.
+        /// Gets the start-symbol of the grammar.
         /// </summary>
         public GrammaticalSymbol StartSymbol
         {
-            get { return this.grammaticals[0]; }
+            get { return this.grammaticals[this.start_symb_ind]; }
         }
 
         /// <summary>
@@ -238,7 +247,7 @@ namespace Syntan.SyntacticAnalysis
                             symbol => new SymbolRep()
                             {
                                 IsGrammatical = symbol is GrammaticalSymbol,
-                                Index = symbol is GrammaticalSymbol 
+                                Index = symbol is GrammaticalSymbol
                                         ? this.IndexOf((GrammaticalSymbol)symbol)
                                         : this.IndexOf((TerminalSymbol)symbol)
                             }).ToArray(),
