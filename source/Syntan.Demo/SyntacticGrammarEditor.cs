@@ -77,6 +77,20 @@ namespace Syntan.Demo
 
         #region Grammaticals
 
+        private class SymbolComparer : IComparer<Symbol>
+        {
+            #region IComparer<Symbol> Members
+
+            public int Compare( Symbol x, Symbol y )
+            {
+                return x.Name.CompareTo(y.Name);
+            }
+
+            #endregion
+        }
+
+        private SymbolComparer symbol_comparer = new SymbolComparer();
+
         private List<GrammaticalSymbol> grammaticals;
 
         internal void RebuildGrammaticals()
@@ -117,7 +131,8 @@ namespace Syntan.Demo
                     }
                 }
 
-            //TODO: order grammaticals?
+            // Sort the symbols
+            this.grammaticals.Sort(this.symbol_comparer);
 
             // Remove affected Rules
             if( affected_rule_indices.Count > 0 )
@@ -218,6 +233,9 @@ namespace Syntan.Demo
                             affected_rule_indices.Add(i);
                     }
                 }
+
+            // Sort the symbols.
+            this.terminals.Sort(this.symbol_comparer);
 
             // Remove affected Rules
             if( affected_rule_indices.Count > 0 )
