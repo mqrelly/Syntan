@@ -31,8 +31,7 @@ Roadmap
 
 Planed for the next weeks:
 
--  Add a detailed todo.txt
--  Unit testing and code coverage 
+-  Clean up Unit testing and code coverage 
 -  Make it Mono/Linux compatible
 -  documentation
 
@@ -44,3 +43,9 @@ Later:
 -  LR(1), LALR(1) parser table builders
 -  WPF Demo app
 -  Show the parser table generation details
+
+
+Contact
+-------
+
+My name is Márk Szabadkai. I'm the aouthor and sole maintainer of this project. You can contact me at mqrelly@gmail.com .
