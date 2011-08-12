@@ -48,4 +48,4 @@ Later:
 Contact
 -------
 
-My name is Márk Szabadkai. I'm the aouthor and sole maintainer of this project. You can contact me at mqrelly@gmail.com .
+My name is MÃ¡rk Szabadkai. I'm the aouthor and sole maintainer of this project. You can contact me at mqrelly@gmail.com .
