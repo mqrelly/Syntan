@@ -378,8 +378,8 @@ namespace Syntan.Demo
 
                 // Label
                 edge.LabelPosition = new PointF(
-                    (float)layout_edge.Attr.LabelLeft,
-                    (float)layout_edge.Attr.LabelTop);
+                    -(float)layout_edge.Attr.LabelTop,
+                    (float)layout_edge.Attr.LabelLeft);
             }
 
             // Add an 'in-edge' to the start state node
@@ -387,18 +387,18 @@ namespace Syntan.Demo
             start_edge.LinePen = this.edge_pen;
             start_edge.EndNode = this.node_map[0];
             start_edge.EndPosition = new PointF(
-                start_edge.EndNode.Position.X,
-                start_edge.EndNode.Position.Y + this.node_radius);
+                start_edge.EndNode.Position.X - this.node_radius,
+                start_edge.EndNode.Position.Y);
             start_edge.StartPosition = new PointF(
-                start_edge.EndPosition.X,
-                start_edge.EndPosition.Y + this.node_diameter);
+                start_edge.EndPosition.X - this.node_diameter,
+                start_edge.EndPosition.Y);
 
             this.Graph.Edges.Add(start_edge);
         }
 
         private PointF FromGleePoint( Microsoft.Glee.Splines.Point p )
         {
-            return new PointF((float)p.X, (float)p.Y);
+            return new PointF(-(float)p.Y, (float)p.X);
         }
 
         #endregion
