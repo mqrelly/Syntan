@@ -56,6 +56,10 @@ namespace Syntan.Demo
                     this.grammaticals.AddRange(value.Grammaticals);
                     this.Grammaticals_TextBox.Text = string.Join(",", this.grammaticals.Select(gr => gr.Name));
 
+                    foreach( var gr in this.grammaticals )
+                        this.StartSymbol_ComboBox.Items.Add(gr.Name);
+                    this.StartSymbol_ComboBox.SelectedIndex = value.IndexOf(value.StartSymbol);
+
                     this.terminals.AddRange(value.Terminals);
                     this.Terminals_TextBox.Text = string.Join(",", this.terminals.Select(tr => tr.Name));
 
