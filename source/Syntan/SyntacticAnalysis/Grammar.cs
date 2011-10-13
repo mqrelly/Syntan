@@ -214,6 +214,7 @@ namespace Syntan.SyntacticAnalysis
         Grammar( SerializationInfo info, StreamingContext context )
         {
             this.grammaticals = (IList<GrammaticalSymbol>)info.GetValue("Grammaticals", typeof(IList<GrammaticalSymbol>));
+            this.start_symb_ind = info.GetInt32("StartSymbolInd");
             this.terminals = (IList<TerminalSymbol>)info.GetValue("Terminals", typeof(IList<TerminalSymbol>));
 
             var rules_rep = (List<RuleRep>)info.GetValue("Rules", typeof(List<RuleRep>));
@@ -236,6 +237,7 @@ namespace Syntan.SyntacticAnalysis
         public void GetObjectData( SerializationInfo info, StreamingContext context )
         {
             info.AddValue("Grammaticals", this.grammaticals);
+            info.AddValue("StartSymbolInd", this.start_symb_ind);
             info.AddValue("Terminals", this.terminals);
 
             var rules_rep = new List<RuleRep>(this.rules.Count);
