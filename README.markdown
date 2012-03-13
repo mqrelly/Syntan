@@ -5,7 +5,7 @@ It generates LR parser tables from formal grammatics, and demonstrates the parsi
 
 This was a university project of mine. This software is intended for education, not for production.
 
-This software is free (as in speach and beer). It uses the GNU General Public License v3.0 (see gpl-3.0.txt).
+This software is free (as in speach and beer). It uses the GNU General Public License v3.0 (see LICENSE.txt).
 
 The ui language is currently hungarien.
 
