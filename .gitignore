@@ -10,3 +10,6 @@
 
 # Backups
 *.bak
+
+# Report generation
+reports/
