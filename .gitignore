@@ -12,4 +12,7 @@
 *.bak
 
 # Report generation
+tools/partcover.bat
+tools/xunit-console.bat
+tools/reportgenerator.bat
 reports/
